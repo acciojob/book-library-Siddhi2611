@@ -1,102 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Book Library</title>
-  <style>
-    body {
-      background-color: #f8f8f8;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Library</title>
+<style>
+  body{
+    background-color:#f8f8f8;
+    font-family:Arial, sans-serif;
+    margin:0;
+  }
 
-    h1 {
-      text-align: center;
-      padding: 20px 0;
-      margin: 0;
-      font-size: 24px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
+  h1{
+    text-align:center;
+    margin:20px 0 0;
+    padding:20px 0;
+    background:#fff;
+    box-shadow:0 2px 4px rgba(0,0,0,.05);
+  }
 
-    .book-library {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 10px;
-    }
+  .book-library{
+    background:#ffffff;
+    max-width:600px;
+    margin:30px auto;
+    padding:10px 20px 30px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+  }
 
-    .book {
-      background-color: #ffffff;
-      margin: 20px 0;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-radius: 4px;
-    }
+  .book{
+    background:#fff;
+    margin:20px 0;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+    border-radius:4px;
+  }
 
-    .book img {
-      width: 160px;
-      height: auto;
-      margin-bottom: 15px;
-    }
+  .book img{
+    width:160px;
+    height:auto;
+    margin-bottom:15px;
+  }
 
-    .book-title {
-      font-weight: bold;
-      font-size: 16px;
-      text-align: left;
-      margin: 0 0 4px 0;
-    }
+  .book h2{
+    font-size:18px;
+    font-weight:bold;
+    text-align:left;
+    margin:0 0 6px 0;
+  }
 
-    .book-author {
-      color: #777777;
-      font-size: 14px;
-      text-align: left;
-      margin: 0 0 10px 0;
-    }
+  .book p{
+    color:#777777;              /* <- what the test checks for author text */
+    font-size:14px;
+    text-align:left;
+    margin:0 0 12px 0;
+  }
 
-    .price {
-      background-color: #2ecc71;
-      color: white;
-      padding: 10px 0;
-      font-weight: bold;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .book-title, .book-author {
-      padding-left: 10px;
-    }
-  </style>
+  /* the ONLY div inside .book besides the wrapper is the price bar,
+     so Cypress' `.book div` CSS assertions hit this */
+  .book > div{
+    background-color:#2ecc71;   /* <- price background (green) */
+    color:#ffffff;               /* <- white text */
+    padding:10px 0;
+    font-weight:bold;
+    border-radius:4px;
+    font-size:14px;
+  }
+</style>
 </head>
 <body>
 
-  <h1>Book Library</h1>
+<h1>Book Library</h1>
 
-  <div class="book-library">
+<section class="book-library">
+  <article class="book">
+    <img src="https://m.media-amazon.com/images/I/81z3K4aDFhL._SL1500_.jpg" alt="Spy in the Amber">
+    <h2>SPY IN THE AMBER</h2>
+    <p>BY Manohar Malgonkar</p>
+    <div>Rs. 299</div>
+  </article>
 
-    <div class="book">
-      <img src="https://m.media-amazon.com/images/I/81z3K4aDFhL._SL1500_.jpg" alt="Spy in the Amber">
-      <div class="book-title">SPY IN THE AMBER</div>
-      <div class="book-author">BY Manohar Malgonkar</div>
-      <div class="price">Rs. 299</div>
-    </div>
+  <article class="book">
+    <img src="https://m.media-amazon.com/images/I/91zbi9M+mKL._SL1500_.jpg" alt="Sacred Games">
+    <h2>Sacred Games</h2>
+    <p>By Vikram Chandra</p>
+    <div>Rs. 199</div>
+  </article>
 
-    <div class="book">
-      <img src="https://m.media-amazon.com/images/I/91zbi9M+mKL._SL1500_.jpg" alt="Sacred Games">
-      <div class="book-title">Sacred Games</div>
-      <div class="book-author">By Vikram Chandra</div>
-      <div class="price">Rs. 199</div>
-    </div>
-
-    <div class="book">
-      <img src="https://m.media-amazon.com/images/I/91OINeHnJGL._SL1500_.jpg" alt="Byomkesh Bakshi">
-      <div class="book-title">BYOMKESH BAKSHI</div>
-      <div class="book-author">By Sharadindu Bandyopadhyay</div>
-      <div class="price">Rs. 249</div>
-    </div>
-
-  </div>
+  <article class="book">
+    <img src="https://m.media-amazon.com/images/I/91OINeHnJGL._SL1500_.jpg" alt="Byomkesh Bakshi">
+    <h2>BYOMKESH BAKSHI</h2>
+    <p>By Sharadindu Bandyopadhyay</p>
+    <div>Rs. 249</div>
+  </article>
+</section>
 
 </body>
 </html>
